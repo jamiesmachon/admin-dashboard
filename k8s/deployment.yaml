@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hh-dashboard
+spec:
+  selector:
+    matchLabels:
+      app: hh-dashboard
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hh-dashboard
+    spec:
+      containers:
+        - name: hh-dashboard
+          image: nextpixel/hh-dashboard:0.0.1
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+          ports:
+            - containerPort: 3000

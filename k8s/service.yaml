@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hh-dashboard
+  labels:
+    app: hh-dashboard
+spec:
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 3000
+  selector:
+    app: hh-dashboard
